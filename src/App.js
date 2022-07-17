@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+const [temperature, setTemperature] = useState(0)
+
+const increament= ()=>{
+  if(temperature===30)return
+  setTemperature(temperature+1)
+}
+const decreament= ()=>{
+  if(temperature===0)return
+  setTemperature(temperature-1)
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+    <div className="temperature-display" >
+       <h3 id="temperature">{temperature}°C</h3>
     </div>
+
+    <button onClick={decreament} className="minus"  type="text">-</button>
+
+    <button onClick ={increament} className="plus"  type="text">+</button>
+</div>
   );
 }
 
